@@ -20,3 +20,22 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
 }
+
+.max-width-300 {
+  max-width: 300px;
+}
+
+.max-width-400 {
+  max-width: 400px;
+}
+
+.max-width-500 {
+  max-width: 500px;
+}
+
+.constrain {
+  @extend .max-width-500;
+
+  margin: auto;
+  text-align: left;
+}
