@@ -1,14 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-// import { useScroll } from '../hooks/useScroll';
 
 const WIDTH = 800;
 const GUTTER = 60;
 const vW = 300;
 const vH = vW * 0.5625;
 const HEIGHT = vH * 3 + GUTTER * 2;
-// const vH2 = vH * 2 * (HEIGHT / (HEIGHT - vH - GUTTER * 2));
-// const SCROLL_OFFSET = 200;
-// const SCROLL_MULTIPLIER = 2.75;
 const RANGE_MAX = 75;
 const SCROLL_MAX = 100;
 
@@ -16,17 +12,10 @@ export const DemoCanvas = () => {
   const [range, setRange] = useState(30);
   const [scroll, setScroll] = useState(0);
   const canvas = useRef(null);
-  // const lastScrollY = useRef(0);
 
   const draw = () => {
     if (!canvas.current || !canvas.current.getContext) return;
-    // const scrollY = lastScrollY.current;
 
-    // const rect = canvas.current.getBoundingClientRect();
-    // const canvasTop = rect.top + scrollY;
-    // const canvasBottom = rect.bottom + scrollY;
-    // const Δ1 = (clamp(scrollY * SCROLL_MULTIPLIER + SCROLL_OFFSET, canvasTop, canvasBottom) - canvasTop) / HEIGHT;
-    // const Δ2 = (clamp(scrollY * SCROLL_MULTIPLIER + SCROLL_OFFSET, canvasTop, canvasTop + vH2) - canvasTop) / vH2;
     const Δ1 = scroll / SCROLL_MAX;
     const Δ2 = scroll / SCROLL_MAX;
 
@@ -46,13 +35,6 @@ export const DemoCanvas = () => {
   useEffect(() => {
     drawRef.current();
   }, [drawRef, range, scroll]);
-
-  // const onScroll = (scrollY) => {
-  //   lastScrollY.current = scrollY;
-  //   draw();
-  // };
-
-  // useScroll(onScroll);
 
   return (
     <div className="row container align-items-center justify-content-center m-auto py-4">
@@ -113,10 +95,6 @@ const Draw = {
       ctx.fillStyle = tempFillStyle;
     },
 };
-
-// const clamp = (num = 0, min = 0, max = 0) => {
-//   return Math.max(min, Math.min(num, max));
-// };
 
 const spread = (range, amount = 1) => {
   return GUTTER + ((GUTTER * range) / RANGE_MAX) * amount;
