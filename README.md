@@ -2,6 +2,29 @@
 
 This is a collection of examples for the YouTube Parallax video.
 
+## Getting Started
+
+To run this on your local machine, do the following:
+
+[Install Yarn](https://classic.yarnpkg.com/en/docs/install/) if you have not done so already.
+
+```
+yarn install
+yarn start
+```
+
+Your browser should automatically open up to `http://localhost:3000`.
+
+## Contributing
+
+As this is the repository for a YouTube video, I likely won't be making extensive changes. But if you do find any issues or have recommendations, open up a Pull Request!
+
+## License
+
+MIT
+
+Please feel free to use any and all code you find in this repository and use it for whatever end you see fit.
+
 &nbsp;
 
 &nbsp;
@@ -11,6 +34,8 @@ This is a collection of examples for the YouTube Parallax video.
 &nbsp;
 
 --
+
+_ORIGINAL README:_
 
 # Getting Started with Create React App
 
