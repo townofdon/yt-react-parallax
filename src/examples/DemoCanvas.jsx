@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 
 import imgDoge from '../assets/img-doge.png';
 
+// original dimensions: 2000x1200
 const IMG_DOGE_WIDTH = 2000;
-const IMG_DOGE_HEIGHT = 1200;
+const IMG_DOGE_HEIGHT = IMG_DOGE_WIDTH * 0.6;
 
-const WIDTH = 800;
+const WIDTH = 1600;
 const GUTTER = 60;
-const vW = 300;
+const vW = 600;
 const vH = vW * 0.5625;
 const HEIGHT = vH * 3 + GUTTER * 2;
 const RANGE_MAX = 75;
@@ -81,9 +82,9 @@ export const DemoCanvas = () => {
 
     var ctx = canvas.current.getContext('2d');
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
-    Draw.rect(ctx)('body', rect.body);
-    Draw.rect(ctx)('viewport', rect.viewport, 'blue');
-    Draw.rect(ctx)('image box', rect.imgBox, 'green');
+    Draw.rect(ctx)('body', rect.body, '#ff6e6e');
+    Draw.rect(ctx)('viewport', rect.viewport, '#7196ff');
+    Draw.rect(ctx)('image box', rect.imgBox, '#22a782');
     Draw.rect(ctx)('plx background', rect.plxBg, 'darkmagenta');
 
     ctx.font = '20px sans-serif';
@@ -115,15 +116,45 @@ export const DemoCanvas = () => {
 
   return (
     <div>
-      <div className="row container align-items-center justify-content-center m-auto py-4">
-        <div className="col flex-shrink-1 flex-grow-0 w-auto">
-          <h1 style={{ transform: 'rotate(-90deg)' }}>Demo</h1>
+      <div className="row align-items-center justify-content-center m-auto py-4">
+        <div
+          className="col flex-shrink-1 flex-grow-1 w-auto"
+          style={{
+            backgroundColor: '#20131a',
+            alignSelf: 'stretch',
+            alignItems: 'center',
+            justifyContent: 'center',
+            display: 'flex',
+          }}
+        >
+          <h1
+            style={{
+              transform: 'rotate(-90deg)',
+              position: 'absolute',
+              whiteSpace: 'nowrap',
+
+              letterSpacing: '0.2em',
+              fontWeight: 300,
+            }}
+          >
+            HOW&nbsp;&nbsp;PARALLAX&nbsp;WORKS
+          </h1>
         </div>
-        <div className="col flex-shrink-1 flex-grow-0 w-auto">
-          <canvas style={{ backgroundColor: 'whitesmoke' }} ref={canvas} width={WIDTH} height={HEIGHT} />
-          <div className="d-flex align-items-center justify-content-center">
-            <div className="row">
-              <div className="col align-items-center justify-content-center">
+        <div className="col flex-shrink-1 w-auto position-relative" style={{ backgroundColor: 'black' }}>
+          <canvas style={{ backgroundColor: 'black' }} ref={canvas} width={WIDTH} height={HEIGHT} />
+          <div
+            className="d-flex align-items-center justify-content-center"
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              marginTop: GUTTER,
+              marginRight: GUTTER,
+            }}
+          >
+            <div style={{ textAlign: 'left', minWidth: 175 }}>
+              <h3 style={{ marginBottom: GUTTER / 2 }}>CONTROLS</h3>
+              <div>
                 <input
                   id="sliderScroll"
                   type="range"
@@ -137,7 +168,7 @@ export const DemoCanvas = () => {
                 />
                 <p>Scroll Y: {scroll}</p>
               </div>
-              <div className="col flex-shrink-1 flex-grow-0 w-auto">
+              <div className="flex-shrink-1 flex-grow-0 w-auto">
                 <input
                   id="sliderRange"
                   type="range"
