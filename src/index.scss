@@ -1,14 +1,95 @@
-body {
-  background-color: #282c34;
-  color: white;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+@use './css/_helpers.scss';
+
+:root {
+  --accent-color: #ff0a7a;
+  --hue-offset: 50;
+  --main-pad: 50px;
+}
+
+.font-roboto {
+  font-family: 'Roboto Mono', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.font-oswald {
+  font-family: 'Oswald', 'Helvetica Neue', 'Open Sans', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @extend .font-roboto;
+
+  background-color: #282c34;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.2em;
+}
+
+/* TYPOGRAPHY */
+h1 {
+  @extend .font-oswald;
+  font-size: 5em;
+  line-height: 2em;
+}
+h2 {
+  @extend .font-oswald;
+  font-size: 4em;
+  line-height: 1.5em;
+}
+h3 {
+  font-weight: 800;
+  font-size: 2.5em;
+  line-height: 2em;
+}
+h4 {
+  font-weight: 800;
+  font-size: 2em;
+  line-height: 2em;
+}
+h5 {
+  font-weight: 800;
+  font-size: 1.75em;
+  line-height: 2em;
+}
+h6 {
+  font-weight: 800;
+  font-size: 1.5em;
+  line-height: 2em;
+}
+p,
+li {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+small {
+  font-size: 0.8em;
+  line-height: 1em;
+}
+blockquote {
+  font-family: 'Oswald', sans-serif;
+  font-style: italic;
+  font-size: 3em;
+  line-height: 2em;
+  padding-left: 1em;
+  border-left: 2px solid rgb(184, 11, 63);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote {
+  margin-bottom: 16px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   white-space: pre;

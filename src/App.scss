@@ -1,55 +1,55 @@
+body,
+html {
+  accent-color: #ff0a7a;
+  accent-color: var(--accent-color);
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  // height: 40vmin;
-  pointer-events: none;
-}
+nav.navigation {
+  ul {
+    margin: 0;
+  }
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  li a {
+    display: inline-block;
+    padding: 5px 20px;
+    text-decoration: none;
+    transition: all 0.25s ease-in-out;
+    color: #ddd;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    &.active,
+    &:active {
+      color: var(--accent-color);
+    }
+
+    &:hover {
+      background-color: var(--accent-color);
+      color: black;
+    }
   }
 }
 
-.header {
-  background-color: #191919;
-  // min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  font-size: 5rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.bottom-nav-link {
+  display: block;
+  width: 100%;
+  padding: 30px 60px;
+  background: cyan;
+  color: black;
+  transition: all 0.25s ease-in-out;
 
-  .App-logo {
-    margin-right: 30px;
-  }
-
-  .pageTitle {
-    font-size: 5rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  &:hover {
+    background-color: rgb(2, 0, 32);
+    color: cyan;
   }
 }
 
-.fauxScrollable {
-  min-height: 300vh;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image-text {
+  text-shadow: 2px 2px 5px #00000026;
 }

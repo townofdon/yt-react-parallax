@@ -1,0 +1,13 @@
+.rotate-title {
+  @media (min-width: 1200px) {
+    transform: rotate(-90deg);
+    position: absolute;
+    white-space: nowrap;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+  }
+}
+
+canvas {
+  max-width: 100%;
+}

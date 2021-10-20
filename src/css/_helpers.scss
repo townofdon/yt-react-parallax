@@ -39,3 +39,150 @@
   margin: auto;
   text-align: left;
 }
+
+.center {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.position-static {
+  position: static !important;
+}
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute;
+}
+.position-fixed {
+  position: fixed !important;
+}
+.position-sticky {
+  position: sticky !important;
+  position: -webkit-sticky !important;
+}
+.absolute-fill {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.full-width {
+  width: 100%;
+}
+.m-auto {
+  margin: auto;
+}
+.color-white {
+  color: white;
+}
+.color-black {
+  color: black;
+}
+.color-red {
+  color: rgb(205, 50, 0);
+  color: rgb(calc(255 - var(--hue-offset)), var(--hue-offset), 0);
+}
+.color-green {
+  color: rgb(0, 205, 50);
+  color: rgb(0, calc(255 - var(--hue-offset)), var(--hue-offset));
+}
+.color-blue {
+  color: rgb(50, 0, 205);
+  color: rgb(var(--hue-offset), 0, calc(255 - var(--hue-offset)));
+}
+.bg-black {
+  background-color: black;
+}
+.bg-white {
+  background-color: whitesmoke;
+}
+.bg-red {
+  background-color: rgb(205, 50, 0);
+  background-color: rgb(calc(255 - var(--hue-offset)), var(--hue-offset), 0);
+}
+.bg-green {
+  background-color: rgb(0, 205, 50);
+  background-color: rgb(0, calc(255 - var(--hue-offset)), var(--hue-offset));
+}
+.bg-blue {
+  background-color: rgb(50, 0, 205);
+  background-color: rgb(var(--hue-offset), 0, calc(255 - var(--hue-offset)));
+}
+.mode-screen {
+  mix-blend-mode: screen;
+}
+.mode-multiply {
+  mix-blend-mode: multiply;
+}
+.fade-to-black-down {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25253851540616246) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.top-0 {
+  top: 0;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.left-0 {
+  left: 0;
+}
+.right-0 {
+  right: 0;
+}
+
+.opacity-10 {
+  opacity: 0.1;
+}
+.opacity-20 {
+  opacity: 0.2;
+}
+.opacity-30 {
+  opacity: 0.3;
+}
+.opacity-40 {
+  opacity: 0.4;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-60 {
+  opacity: 0.6;
+}
+.opacity-70 {
+  opacity: 0.7;
+}
+.opacity-80 {
+  opacity: 0.8;
+}
+.opacity-90 {
+  opacity: 0.9;
+}
+
+/* SCROLL FILLERS */
+.scroll-fill-25 {
+  min-height: 25vh;
+}
+.scroll-fill-50 {
+  min-height: 50vh;
+}
+.scroll-fill-75 {
+  min-height: 75vh;
+}
+.scroll-fill-100 {
+  min-height: 100vh;
+}
+.scroll-fill-200 {
+  min-height: 200vh;
+}
+.scroll-fill-300 {
+  min-height: 300vh;
+}
+.scroll-fill-400 {
+  min-height: 400vh;
+}
+.scroll-fill-500 {
+  min-height: 500vh;
+}

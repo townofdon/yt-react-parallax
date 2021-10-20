@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import imgDoge from '../assets/img-doge.png';
 
+import './DemoCanvas.scss';
+
 // original dimensions: 2000x1200
 const IMG_DOGE_WIDTH = 2000;
 const IMG_DOGE_HEIGHT = IMG_DOGE_WIDTH * 0.6;
@@ -116,29 +118,18 @@ export const DemoCanvas = () => {
 
   return (
     <div>
-      <div className="row align-items-center justify-content-center m-auto py-4">
+      <div className="row align-items-center justify-content-center m-auto pb-4">
         <div
-          className="col flex-shrink-1 flex-grow-1 w-auto"
+          className="col-12 col-xl-1"
           style={{
-            backgroundColor: '#20131a',
+            backgroundColor: '#111',
             alignSelf: 'stretch',
             alignItems: 'center',
             justifyContent: 'center',
             display: 'flex',
           }}
         >
-          <h1
-            style={{
-              transform: 'rotate(-90deg)',
-              position: 'absolute',
-              whiteSpace: 'nowrap',
-
-              letterSpacing: '0.2em',
-              fontWeight: 300,
-            }}
-          >
-            HOW&nbsp;&nbsp;PARALLAX&nbsp;WORKS
-          </h1>
+          <h4 className="rotate-title">HOW&nbsp;&nbsp;IT&nbsp;WORKS</h4>
         </div>
         <div className="col flex-shrink-1 w-auto position-relative" style={{ backgroundColor: 'black' }}>
           <canvas style={{ backgroundColor: 'black' }} ref={canvas} width={WIDTH} height={HEIGHT} />
@@ -152,7 +143,7 @@ export const DemoCanvas = () => {
               marginRight: GUTTER,
             }}
           >
-            <div style={{ textAlign: 'left', minWidth: 175 }}>
+            <div style={{ textAlign: 'left', minWidth: 225 }}>
               <h3 style={{ marginBottom: GUTTER / 2 }}>CONTROLS</h3>
               <div>
                 <input
@@ -220,9 +211,3 @@ const Draw = {
 const spread = (range, amount = 1) => {
   return GUTTER + ((GUTTER * range) / RANGE_MAX) * amount;
 };
-
-// const dogespectRatio = (num) => {
-//   // so ratio
-//   // much wow
-//   return num *
-// };
