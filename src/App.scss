@@ -9,6 +9,9 @@ html {
 }
 
 nav.navigation {
+  z-index: 30;
+  position: relative;
+
   ul {
     margin: 0;
   }

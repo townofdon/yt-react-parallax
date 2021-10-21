@@ -119,6 +119,14 @@
   background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25253851540616246) 50%, rgba(0, 0, 0, 0) 100%);
 }
+// prettier-ignore
+.border-bottom-reveal {
+  box-shadow: 0px 5px #111111,
+              0px 10px #111111d2,
+              0px 15px #111111a5,
+              0px 20px #1111114c,
+              0px 25px #1111110d
+}
 
 .top-0 {
   top: 0;
@@ -159,6 +167,18 @@
 }
 .opacity-90 {
   opacity: 0.9;
+}
+.z-index-10 {
+  z-index: 10;
+}
+.z-index-20 {
+  z-index: 20;
+}
+.z-index-30 {
+  z-index: 30;
+}
+.z-index-40 {
+  z-index: 40;
 }
 
 /* SCROLL FILLERS */

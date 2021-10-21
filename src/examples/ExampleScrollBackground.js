@@ -31,35 +31,15 @@ export const ExampleScrollBackground = () => {
       <FillerSection fillAmount={50} />
 
       <div className="py-3">
-        <p className="constrain mb-3">Here is the same effect, but reversed:</p>
-      </div>
-
-      <Image src={imgCamera} alt="Camera Background" height="50vh" speed={-1}>
-        <h3 className="image-text">reversed</h3>
-      </Image>
-
-      <FillerSection fillAmount={50} />
-
-      <div className="py-3">
         <h2 className="pb-3">Variable Speeds</h2>
-        <p className="m-0">
-          The parallax speed can also be variable. The following example uses a speed of <code>0.25</code> for a much
+        <p className="m-3">
+          The parallax speed can also be variable. The following example uses a speed of <code>0.5</code> for a much
           more subtle effect:
         </p>
       </div>
 
-      <Image src={imgSpaceport} alt="Space Port Background" height="75vh" speed={0.25}>
+      <Image src={imgSpaceport} alt="Space Port Background" height="75vh" speed={0.5}>
         <h3 className="image-text">sloooow</h3>
-      </Image>
-
-      <FillerSection fillAmount={50} />
-
-      <div className="py-3">
-        <p className="constrain mb-3 image-text">Slow, but (you guessed it) reversed:</p>
-      </div>
-
-      <Image src={imgForest} alt="Forest Background" height="75vh" speed={-0.5}>
-        <h3>somewhat slow, reversed</h3>
       </Image>
 
       <FillerSection fillAmount={50} />

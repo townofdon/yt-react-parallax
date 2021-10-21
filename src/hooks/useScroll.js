@@ -8,27 +8,26 @@ export const useScroll = (onScroll = (scrollY = 0, winHeight = 0) => {}) => {
   useEffect(() => {
     let currentScrollY = window.pageYOffset || 0;
     let currentWinHeight = window.innerHeight || 0;
-    let ticking = false;
+    let prevScrollY = currentScrollY;
+    let animationId = null;
 
-    const onNextFrame = () => {
-      if (ticking) return;
-
-      window.requestAnimationFrame(() => {
+    const onTick = () => {
+      if (currentScrollY !== prevScrollY) {
         _onScroll.current(currentScrollY, currentWinHeight);
-        ticking = false;
-      });
+      }
 
-      ticking = true;
+      prevScrollY = currentScrollY;
+      animationId = window.requestAnimationFrame(onTick);
     };
+
+    onTick();
 
     const onScroll = (e) => {
       currentScrollY = window.pageYOffset || 0;
-      onNextFrame();
     };
 
     const onResize = (e) => {
       currentWinHeight = window.innerHeight || 0;
-      onNextFrame();
     };
 
     window.addEventListener('resize', onResize);
@@ -36,6 +35,7 @@ export const useScroll = (onScroll = (scrollY = 0, winHeight = 0) => {}) => {
     return () => {
       window.removeEventListener('resize', onResize);
       document.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(animationId);
     };
   }, [_onScroll]);
 };

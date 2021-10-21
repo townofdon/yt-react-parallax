@@ -1,0 +1,65 @@
+svg {
+  polygon {
+    stroke-width: 1;
+  }
+}
+
+.green-lighter {
+  background: #a5df66;
+  fill: #a5df66;
+  stroke: #a5df66;
+}
+.green-light {
+  background: #79b544;
+  fill: #79b544;
+  stroke: #79b544;
+}
+.green-norm {
+  background: #619b37;
+  fill: #619b37;
+  stroke: #619b37;
+}
+.green-dark {
+  background: #54892f;
+  fill: #54892f;
+  stroke: #54892f;
+}
+.green-darker {
+  background: #3c6720;
+  fill: #3c6720;
+  stroke: #3c6720;
+}
+.brown-light {
+  background: #d5bc79;
+  fill: #d5bc79;
+}
+.brown-dark {
+  background: #996d2e;
+  fill: #996d2e;
+}
+
+.svg-cloud1 {
+  animation: bounce1 2s ease-in-out 0s infinite alternate;
+}
+
+.svg-cloud2 {
+  animation: bounce2 3s ease-in-out 0s infinite alternate;
+}
+
+@keyframes bounce1 {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes bounce2 {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
