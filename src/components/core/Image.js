@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 // import { useRect } from '../hooks/useRect';
-import { useScroll } from '../hooks/useScroll';
+import { useScroll } from '../../hooks/useScroll';
 
 import './Image.scss';
 

@@ -1,8 +1,8 @@
-import { Image } from '../components/Image';
+import { Image } from '../components/core/Image';
+import { FillerSection } from '../components/core/FillerSection';
 
 import imgForest from '../assets/img-forest.jpg';
 import imgCamera from '../assets/img-camera.jpg';
-import { FillerSection } from '../components/FillerSection';
 
 export const ExampleScrollBackgroundRev = () => {
   return (

@@ -1,5 +1,5 @@
 // import './ExampleTwo.scss';
-import { AnimatedFade } from '../components/AnimatedFade';
+import { AnimatedFade } from '../components/core/AnimatedFade';
 import { ExampleScrollBackground } from '../examples/ExampleScrollBackground';
 
 function ExampleTwo() {

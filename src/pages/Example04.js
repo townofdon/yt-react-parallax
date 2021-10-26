@@ -1,4 +1,4 @@
-import { AnimatedFade } from '../components/AnimatedFade';
+import { AnimatedFade } from '../components/core/AnimatedFade';
 
 // import './ExampleFour.scss';
 function ExampleFour() {

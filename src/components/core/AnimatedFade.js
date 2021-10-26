@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Easing from '../utils/Easing';
+import Easing from '../../utils/Easing';
 
 export const AnimatedFade = ({
   children,

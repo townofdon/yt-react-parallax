@@ -1,7 +1,7 @@
 import './Home.scss';
 // import logo from '../assets/logo192.png';
 import { DemoCanvas } from '../examples/DemoCanvas';
-import { AnimatedFade } from '../components/AnimatedFade';
+import { AnimatedFade } from '../components/core/AnimatedFade';
 
 function Home() {
   return (

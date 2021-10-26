@@ -1,7 +1,7 @@
-import { Image } from '../components/Image';
+import { Image } from '../components/core/Image';
+import { FillerSection } from '../components/core/FillerSection';
 
 import img from '../assets/img-spaceport.jpg';
-import { FillerSection } from '../components/FillerSection';
 
 export const ExampleFixedBackground = () => {
   return (

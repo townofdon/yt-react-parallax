@@ -1,6 +1,6 @@
 // import './ExampleThree.scss';
 
-import { AnimatedFade } from '../components/AnimatedFade';
+import { AnimatedFade } from '../components/core/AnimatedFade';
 import { ExampleScrollBackgroundRev } from '../examples/ExampleScrollBackgroundRev';
 
 function ExampleThree() {

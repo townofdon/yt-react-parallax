@@ -1,6 +1,5 @@
 // import './ExampleOne.scss';
-import { Link } from 'react-router-dom';
-import { AnimatedFade } from '../components/AnimatedFade';
+import { AnimatedFade } from '../components/core/AnimatedFade';
 import { ExampleFixedBackground } from '../examples/ExampleFixedBackground';
 
 function ExampleOne() {
