@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useMouseMove } from '../hooks/useMouseMove';
-import { useScroll } from '../hooks/useScroll';
+import { ControlTranslate } from '../components/interactive/ControlTranslate';
+import { ScrollableArea } from '../components/interactive/ScrollableArea';
+import { useGlobalMouseMove } from '../hooks/useGlobalMouseMove';
+import { useOnScroll } from '../hooks/useOnScroll';
 import { Maths } from '../utils/Maths';
 import './AnimatedScene.scss';
 
@@ -8,7 +10,7 @@ import { colors } from './sceneAssets/colors';
 import { mountainPaths } from './sceneAssets/mountainPaths';
 import { SvgCloud1 } from './sceneAssets/SvgCloud1';
 import { SvgCloud2 } from './sceneAssets/SvgCloud2';
-import { SvgForest } from './sceneAssets/SvgForest';
+// import { SvgForest } from './sceneAssets/SvgForest';
 import { SvgMountain } from './sceneAssets/SvgMountain';
 import { SvgTree } from './sceneAssets/SvgTree';
 import { SvgTrees } from './sceneAssets/SvgTrees';
@@ -27,6 +29,11 @@ export const AnimatedScene = () => {
         <Sky />
         <Mountains />
       </div>
+      <ScrollableArea debug debugLabel="scroll-test" style={{ zIndex: 9999 }}>
+        <ControlTranslate scrollFromX={-500} scrollToX={500}>
+          <h3>This is fun</h3>
+        </ControlTranslate>
+      </ScrollableArea>
       <div className="animated-scene--container-2">
         <TreeLine />
       </div>
@@ -44,7 +51,7 @@ const Sky = () => {
   const [scrollY, setScrollY] = useState(0);
   const [winHeight, setWinHeight] = useState(0);
 
-  useScroll((_scrollY, _winHeight) => {
+  useOnScroll((_scrollY, _winHeight) => {
     setScrollY(_scrollY);
     setWinHeight(_winHeight);
   });
@@ -78,19 +85,13 @@ const Sky = () => {
 const Mountains = () => {
   const [scrollY, setScrollY] = useState(0);
   const [winHeight, setWinHeight] = useState(0);
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
+  const [mouseX, mouseY] = useGlobalMouseMove();
   let lastMountainColor = 'rgba(0,0,0,0)';
   let lastTransformY = 0;
 
-  useScroll((_scrollY, _winHeight) => {
+  useOnScroll((_scrollY, _winHeight) => {
     setScrollY(_scrollY);
     setWinHeight(_winHeight);
-  });
-
-  useMouseMove((_mouseX, _mouseY) => {
-    setMouseX(_mouseX);
-    setMouseY(_mouseY);
   });
 
   return (

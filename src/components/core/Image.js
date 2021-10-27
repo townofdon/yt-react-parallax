@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 // import { useRect } from '../hooks/useRect';
-import { useScroll } from '../../hooks/useScroll';
+import { useOnScroll } from '../../hooks/useOnScroll';
 
 import './Image.scss';
 
@@ -22,7 +22,7 @@ export const Image = ({
   // const [boxInitialized, boxRect] = useRect(box);
   // const [imgInitialized, imgRect] = useRect(img);
 
-  useScroll((scrollY, winHeight) => {
+  useOnScroll((scrollY, winHeight) => {
     if (fixed) return;
     if (!box.current) return;
     if (!img.current) return;

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export const useScroll = (onScroll = (scrollY = 0, winHeight = 0) => {}) => {
+export const useOnScroll = (onScroll = (scrollY = 0, winHeight = 0) => {}) => {
   // use a ref to avoid an infinite loop when passing `onScroll` to useEffect dependency array
   const _onScroll = useRef(onScroll);
   _onScroll.current = onScroll;

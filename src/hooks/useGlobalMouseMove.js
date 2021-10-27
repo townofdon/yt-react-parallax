@@ -1,9 +1,14 @@
-import { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
-export const useMouseMove = (onMouseMove = (mouseX = 0, mouseY = 0) => {}) => {
-  // use a ref to avoid an infinite loop when passing `onMouseMove` to useEffect dependency array
-  const _onMouseMove = useRef(onMouseMove);
-  _onMouseMove.current = onMouseMove;
+const GlobalMouseCoordsContext = React.createContext(undefined);
+
+export const GlobalMouseMoveProvider = ({ children }) => {
+  const [mouseCoords, setMouseCoords] = useState([
+    // x
+    0,
+    // y
+    0,
+  ]);
 
   useEffect(() => {
     let currentMouseX = 0;
@@ -23,10 +28,12 @@ export const useMouseMove = (onMouseMove = (mouseX = 0, mouseY = 0) => {}) => {
         prevWinWidth !== currentWinWidth ||
         prevWinHeight !== currentWinHeight
       ) {
-        _onMouseMove.current(
+        setMouseCoords([
+          // horizontal distance from center of screen
           -(currentWinWidth * 0.5 - currentMouseX) / (currentWinWidth * 0.5),
+          // vertical distance from center of screen
           (currentWinHeight * 0.5 - currentMouseY) / (currentWinHeight * 0.5),
-        );
+        ]);
       }
 
       prevMouseX = currentMouseX;
@@ -53,5 +60,15 @@ export const useMouseMove = (onMouseMove = (mouseX = 0, mouseY = 0) => {}) => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('resize', onResize);
     };
-  }, [_onMouseMove]);
+  }, [setMouseCoords]);
+
+  return <GlobalMouseCoordsContext.Provider value={mouseCoords}>{children}</GlobalMouseCoordsContext.Provider>;
+};
+
+export const useGlobalMouseMove = () => {
+  const mouseCoords = useContext(GlobalMouseCoordsContext);
+
+  if (mouseCoords === undefined) throw new Error('useGlobalMouseMove must be used inside a GlobalMouseMoveProvider');
+
+  return mouseCoords;
 };

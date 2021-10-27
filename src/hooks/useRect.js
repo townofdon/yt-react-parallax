@@ -1,43 +1,39 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
+
+const defaultRect = () => ({
+  top: undefined,
+  left: undefined,
+  buttom: undefined,
+  right: undefined,
+  width: undefined,
+  height: undefined,
+});
 
 /**
  * Get the rect bounding box for a node excluding any transformations.
  * see: https://stackoverflow.com/questions/27745438/how-to-compute-getboundingclientrect-without-considering-transforms
  */
-export const useRect = (nodeRef) => {
-  const initialized = useRef(false);
-  const rect = useRef({
-    top: undefined,
-    left: undefined,
-    buttom: undefined,
-    right: undefined,
-    width: undefined,
-    height: undefined,
-  });
+export const useRect = (nodeRef = { current: null }) => {
+  const [initialized, setInitialized] = useState(false);
+  const [rect, setRect] = useState(defaultRect());
 
   useEffect(() => {
-    rect.current = calcPosition(nodeRef.current);
-    initialized.current = true;
-  }, [initialized, rect, nodeRef]);
+    // rect.current = calcPosition(nodeRef.current);
+    setRect(calcPosition(nodeRef.current));
+    setInitialized(true);
+  }, [setInitialized, setRect, nodeRef]);
 
   const recalculate = () => {
-    rect.current = calcPosition(nodeRef.current);
-    return rect.current;
+    const calculated = calcPosition(nodeRef.current);
+    setRect(calculated);
+    return calculated;
   };
 
   return [initialized, rect, recalculate];
 };
 
 const calcPosition = (node) => {
-  if (!node)
-    return {
-      top: undefined,
-      left: undefined,
-      buttom: undefined,
-      right: undefined,
-      width: undefined,
-      height: undefined,
-    };
+  if (!node) return defaultRect();
 
   // const style = getComputedStyle(node);
   // if (!style || !style.transform) return node.getBoundingClientRect();

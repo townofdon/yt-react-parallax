@@ -1,6 +1,10 @@
 import './App.scss';
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink, useLocation, Link } from 'react-router-dom';
+
+import { GlobalScrollProvider } from './hooks/useGlobalScroll';
+import { GlobalMouseMoveProvider } from './hooks/useGlobalMouseMove';
+
 import Home from './pages/Home';
 import StyleGuide from './pages/StyleGuide';
 import ExampleOne from './pages/Example01';
@@ -24,96 +28,105 @@ function ScrollToTop() {
   return null;
 }
 
+function Wrapper({ children }) {
+  return (
+    <GlobalScrollProvider>
+      <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
+    </GlobalScrollProvider>
+  );
+}
+
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <ScrollToTop />
-        <nav className="navigation">
-          <ul>
-            <li>
-              <NavLink to="/" activeClassName="active" exact>
-                Δ
-              </NavLink>
-              <NavLink to="/example-one" activeClassName="active" exact>
-                01
-              </NavLink>
-              <NavLink to="/example-two" activeClassName="active" exact>
-                02
-              </NavLink>
-              <NavLink to="/example-three" activeClassName="active" exact>
-                03
-              </NavLink>
-              <NavLink to="/example-four" activeClassName="active" exact>
-                04
-              </NavLink>
-              <NavLink to="/example-five" activeClassName="active" exact>
-                05
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+    <Wrapper>
+      <div className="App">
+        <Router>
+          <ScrollToTop />
+          <nav className="navigation">
+            <ul>
+              <li>
+                <NavLink to="/" activeClassName="active" exact>
+                  Δ
+                </NavLink>
+                <NavLink to="/example-one" activeClassName="active" exact>
+                  01
+                </NavLink>
+                <NavLink to="/example-two" activeClassName="active" exact>
+                  02
+                </NavLink>
+                <NavLink to="/example-three" activeClassName="active" exact>
+                  03
+                </NavLink>
+                <NavLink to="/example-four" activeClassName="active" exact>
+                  04
+                </NavLink>
+                <NavLink to="/example-five" activeClassName="active" exact>
+                  05
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/example-one" exact>
+              <ExampleOne />
+            </Route>
+            <Route path="/example-two" exact>
+              <ExampleTwo />
+            </Route>
+            <Route path="/example-three" exact>
+              <ExampleThree />
+            </Route>
+            <Route path="/example-four" exact>
+              <ExampleFour />
+            </Route>
+            <Route path="/example-five" exact>
+              <ExampleFive />
+            </Route>
 
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/example-one" exact>
-            <ExampleOne />
-          </Route>
-          <Route path="/example-two" exact>
-            <ExampleTwo />
-          </Route>
-          <Route path="/example-three" exact>
-            <ExampleThree />
-          </Route>
-          <Route path="/example-four" exact>
-            <ExampleFour />
-          </Route>
-          <Route path="/example-five" exact>
-            <ExampleFive />
-          </Route>
+            {/* STYLE GUIDE */}
+            <Route path="/style-guide" exact>
+              <StyleGuide />
+            </Route>
 
-          {/* STYLE GUIDE */}
-          <Route path="/style-guide" exact>
-            <StyleGuide />
-          </Route>
+            <Route path="*">
+              <NoMatch404 />
+            </Route>
+          </Switch>
 
-          <Route path="*">
-            <NoMatch404 />
-          </Route>
-        </Switch>
+          <Switch>
+            <Route path="/" exact>
+              <Link to="/example-one" className="bottom-nav-link">
+                Continue To Next Example ⇒
+              </Link>
+            </Route>
 
-        <Switch>
-          <Route path="/" exact>
-            <Link to="/example-one" className="bottom-nav-link">
-              Continue To Next Example ⇒
-            </Link>
-          </Route>
-
-          <Route path="/example-one" exact>
-            <Link to="/example-two" className="bottom-nav-link">
-              Continue To Next Example ⇒
-            </Link>
-          </Route>
-          <Route path="/example-two" exact>
-            <Link to="/example-three" className="bottom-nav-link">
-              Continue To Next Example ⇒
-            </Link>
-          </Route>
-          <Route path="/example-three" exact>
-            <Link to="/example-four" className="bottom-nav-link">
-              Continue To Next Example ⇒
-            </Link>
-          </Route>
-          <Route path="/example-four" exact>
-            <Link to="/example-five" className="bottom-nav-link">
-              Continue To Next Example ⇒
-            </Link>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+            <Route path="/example-one" exact>
+              <Link to="/example-two" className="bottom-nav-link">
+                Continue To Next Example ⇒
+              </Link>
+            </Route>
+            <Route path="/example-two" exact>
+              <Link to="/example-three" className="bottom-nav-link">
+                Continue To Next Example ⇒
+              </Link>
+            </Route>
+            <Route path="/example-three" exact>
+              <Link to="/example-four" className="bottom-nav-link">
+                Continue To Next Example ⇒
+              </Link>
+            </Route>
+            <Route path="/example-four" exact>
+              <Link to="/example-five" className="bottom-nav-link">
+                Continue To Next Example ⇒
+              </Link>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </Wrapper>
   );
 }
 
