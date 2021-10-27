@@ -7,6 +7,7 @@ export const ScrollableAreaContext = React.createContext(false);
 
 export const ScrollableArea = ({
   id = undefined,
+  className = undefined,
   viewportHeight = 100,
   clamp = true,
   debug = false,
@@ -40,6 +41,7 @@ export const ScrollableArea = ({
     <div
       id={id}
       ref={ref}
+      className={className}
       style={{
         minHeight: `${viewportHeight}vh`,
         backgroundColor: debug ? 'rgba(255, 0, 0, 0.5)' : 'transparent',

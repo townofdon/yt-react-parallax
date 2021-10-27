@@ -5,6 +5,7 @@ import { ScrollableAreaContext } from './ScrollableArea';
 
 export const ControlTranslate = ({
   children,
+  className,
   scrollFromX = 0,
   scrollFromY = 0,
   scrollToX = 0,
@@ -12,6 +13,7 @@ export const ControlTranslate = ({
   mouseOffsetX = 0,
   mouseOffsetY = 0,
   ease = Easing.linear,
+  style = {},
 }) => {
   const [mouseX, mouseY] = useGlobalMouseMove();
   const pctProgress = useContext(ScrollableAreaContext) || 0;
@@ -22,5 +24,9 @@ export const ControlTranslate = ({
   const x = scrollFromX * inverse + scrollToX * easedProgress + mouseOffsetX * mouseX;
   const y = scrollFromY * inverse + scrollToY * easedProgress + mouseOffsetY * mouseY;
 
-  return <div style={{ transform: `translate(${x}px, ${y}px)` }}>{children}</div>;
+  return (
+    <div className={className} style={{ transform: `translate(${x}px, ${y}px)`, ...style }}>
+      {children}
+    </div>
+  );
 };

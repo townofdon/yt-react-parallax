@@ -1,4 +1,5 @@
 import { AnimatedFade } from '../components/core/AnimatedFade';
+import { ExampleScrollText } from '../examples/ExampleScrollText';
 
 // import './ExampleFour.scss';
 function ExampleFour() {
@@ -11,7 +12,7 @@ function ExampleFour() {
           </div>
         </header>
 
-        {/* TODO: ADD ANIMATED TEXT */}
+        <ExampleScrollText />
       </div>
     </AnimatedFade>
   );

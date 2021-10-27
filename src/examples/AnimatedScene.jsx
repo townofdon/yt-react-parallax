@@ -25,18 +25,13 @@ export const AnimatedScene = () => {
 
   return (
     <div className="animated-scene animated-scene--container">
-      <div>
+      <ScrollableArea id="sky-and-mountains" debug>
         <Sky />
         <Mountains />
-      </div>
-      <ScrollableArea debug debugLabel="scroll-test" style={{ zIndex: 9999 }}>
-        <ControlTranslate scrollFromX={-500} scrollToX={500}>
-          <h3>This is fun</h3>
-        </ControlTranslate>
       </ScrollableArea>
-      <div className="animated-scene--container-2">
+      <ScrollableArea id="treeline" className="animated-scene--container-2">
         <TreeLine />
-      </div>
+      </ScrollableArea>
       <div
         id="fireflies-canvas"
         className="fireflies-canvas position-absolute fill-absolute z-index-20"
@@ -48,26 +43,26 @@ export const AnimatedScene = () => {
 };
 
 const Sky = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const [winHeight, setWinHeight] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
+  // const [winHeight, setWinHeight] = useState(0);
 
-  useOnScroll((_scrollY, _winHeight) => {
-    setScrollY(_scrollY);
-    setWinHeight(_winHeight);
-  });
+  // useOnScroll((_scrollY, _winHeight) => {
+  //   setScrollY(_scrollY);
+  //   setWinHeight(_winHeight);
+  // });
 
   // TODO: ABSTRACT TO A UTIL
-  function calcScrollTransform({ scrollY = 0, winHeight, speed = 10 } = {}) {
-    const y = scrollY - winHeight;
-    if (y < 0) return 0;
+  // function calcScrollTransform({ scrollY = 0, winHeight, speed = 10 } = {}) {
+  //   const y = scrollY - winHeight;
+  //   if (y < 0) return 0;
 
-    const transform = y * speed * 0.01;
-    return Maths.clampVal(transform, -winHeight, winHeight);
-  }
+  //   const transform = y * speed * 0.01;
+  //   return Maths.clampVal(transform, -winHeight, winHeight);
+  // }
 
   return (
     <div>
-      <div
+      {/* <div
         className="moon-circle"
         style={{
           transform: `translate(${0}px, ${calcScrollTransform({
@@ -76,7 +71,11 @@ const Sky = () => {
             speed: 120,
           })}px)`,
         }}
-      />
+      /> */}
+
+      <ControlTranslate scrollFromY={0} scrollToY={500}>
+        <div className="moon-circle" />
+      </ControlTranslate>
       <h2 className="animated-scene--title">OUTDOOR EXPLORER</h2>
     </div>
   );
