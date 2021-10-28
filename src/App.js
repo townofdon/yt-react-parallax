@@ -1,6 +1,7 @@
 import './App.scss';
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink, useLocation, Link } from 'react-router-dom';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 import { GlobalScrollProvider } from './hooks/useGlobalScroll';
 import { GlobalMouseMoveProvider } from './hooks/useGlobalMouseMove';
@@ -13,6 +14,7 @@ import NoMatch404 from './pages/NoMatch404';
 import ExampleThree from './pages/Example03';
 import ExampleFour from './pages/Example04';
 import ExampleFive from './pages/Example05';
+import FinalScene from './pages/FinalScene';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,9 +32,11 @@ function ScrollToTop() {
 
 function Wrapper({ children }) {
   return (
-    <GlobalScrollProvider>
-      <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
-    </GlobalScrollProvider>
+    <ParallaxProvider>
+      <GlobalScrollProvider>
+        <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
+      </GlobalScrollProvider>
+    </ParallaxProvider>
   );
 }
 
@@ -63,6 +67,9 @@ function App() {
                 <NavLink to="/example-five" activeClassName="active" exact>
                   05
                 </NavLink>
+                <NavLink to="/final-scene" activeClassName="active" exact>
+                  ΔΔ
+                </NavLink>
               </li>
             </ul>
           </nav>
@@ -84,6 +91,9 @@ function App() {
             </Route>
             <Route path="/example-five" exact>
               <ExampleFive />
+            </Route>
+            <Route path="/final-scene" exact>
+              <FinalScene />
             </Route>
 
             {/* STYLE GUIDE */}
@@ -121,6 +131,11 @@ function App() {
             <Route path="/example-four" exact>
               <Link to="/example-five" className="bottom-nav-link">
                 Continue To Next Example ⇒
+              </Link>
+            </Route>
+            <Route path="/example-five" exact>
+              <Link to="/final-scene" className="bottom-nav-link">
+                VIEW DEMO ⇒
               </Link>
             </Route>
           </Switch>

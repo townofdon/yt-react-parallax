@@ -27,7 +27,7 @@ export const ControlTranslate = ({
   return (
     <div
       className={className}
-      style={{ transform: `translate#d(${x}px, ${y}px), 0px`, transformStyle: 'preserve-3d', ...style }}
+      style={{ transform: `translate3d(${x}px, ${y}px, 0px)`, transformStyle: 'preserve-3d', ...style }}
     >
       {children}
     </div>

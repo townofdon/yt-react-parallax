@@ -1,5 +1,4 @@
 import { AnimatedFade } from '../components/core/AnimatedFade';
-import { AnimatedScene } from '../examples/AnimatedScene';
 
 // import './ExampleFive.scss';
 function ExampleFive() {
@@ -11,8 +10,10 @@ function ExampleFive() {
             <h1 className="pageTitle">5. The Animated Scene</h1>
           </div>
         </header>
-
-        <AnimatedScene />
+        <p className="p-5 m-0">
+          The following is a demonstration of controlled Parallax effects (probably done poorly and sub-optimized!!) YOU
+          HAVE BEEN WARNED.
+        </p>
       </div>
     </AnimatedFade>
   );

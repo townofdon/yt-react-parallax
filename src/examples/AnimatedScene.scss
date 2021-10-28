@@ -7,11 +7,31 @@ $MOUNTAIN_FILL_HEIGHT: 250px;
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 500vh;
+  // height: 500vh;
   // background: linear-gradient(180deg, #111111 0%, #182848 5%, #4b6cb7 33%, #d53369 66%, #daae51 100%);
   // background: linear-gradient(180deg, #111111 0%, #182848 5%, #4b6cb7 33%, #daae51 66%, #c67700 100%);
   background: linear-gradient(180deg, #111111 0%, #182848 5%, #4b6cb7 20%, #51dad1 40%, #9ebd13 88%, #008552 100%);
   overflow: hidden;
+}
+
+.mountain-section {
+  // height: 270vh;
+  height: 80vw;
+  background: linear-gradient(180deg, #023e8a 0%, #51dad1 100%);
+}
+
+.animated-scene--container-2-offset {
+  // margin-top: -$MOUNTAIN_OFFSET_SM * 20;
+
+  // @media (min-width: 768px) {
+  //   margin-top: -$MOUNTAIN_OFFSET_MD * 20;
+  // }
+  // @media (min-width: 1200px) {
+  //   margin-top: -$MOUNTAIN_OFFSET * 26;
+  // }
+  // @media (min-width: 1600px) {
+  //   margin-top: -$MOUNTAIN_OFFSET * 20;
+  // }
 }
 
 .animated-scene--container-2 {
@@ -19,15 +39,9 @@ $MOUNTAIN_FILL_HEIGHT: 250px;
   z-index: 10;
   flex: 1;
   background: linear-gradient(180deg, #51dad1 0%, #9ebd13 50%, #008552 100%);
-
-  margin-top: -$MOUNTAIN_OFFSET_SM * 20;
-
-  @media (min-width: 768px) {
-    margin-top: -$MOUNTAIN_OFFSET_MD * 20;
-  }
-  @media (min-width: 1200px) {
-    margin-top: -$MOUNTAIN_OFFSET * 20;
-  }
+  margin-right: -50px;
+  margin-left: -50px;
+  margin-bottom: -50px;
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -61,6 +75,28 @@ $MOUNTAIN_FILL_HEIGHT: 250px;
   @media (min-width: 768px) {
     top: 1vh;
   }
+}
+
+// prettier-ignore
+.animated-scene--bottom-title {
+  text-transform: uppercase;
+  font-size: 5vw;
+  font-weight: 700;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px #919191,
+      1px 2px 1px #919191,
+      1px 3px 1px #919191,
+      1px 4px 1px #919191,
+      1px 5px 1px #919191,
+      1px 6px 1px #919191,
+      1px 7px 1px #919191,
+      1px 8px 1px #919191,
+      1px 9px 1px #919191,
+      1px 10px 1px #919191,
+  1px 18px 6px rgba(16,16,16,0.4),
+  1px 22px 10px rgba(16,16,16,0.2),
+  1px 25px 35px rgba(16,16,16,0.2),
+  1px 30px 60px rgba(16,16,16,0.4);
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -98,7 +134,6 @@ svg.svg-mountain {
 // prettier-ignore
 .svg-mountain-container {
   position: relative;
-
   margin-top: -$MOUNTAIN_OFFSET_SM;
 
   &:nth-of-type(9) { margin-top: -$MOUNTAIN_OFFSET_SM * 1.75; }
@@ -128,7 +163,7 @@ svg.svg-mountain {
 }
 .svg-last-mountain-offset {
   margin-top: $MOUNTAIN_FILL_HEIGHT;
-  padding-top: $MOUNTAIN_FILL_HEIGHT * 4;
+  padding-top: $MOUNTAIN_FILL_HEIGHT;
 }
 
 .fireflies-canvas {
@@ -136,4 +171,11 @@ svg.svg-mountain {
   height: 100%;
   // filter: blur(1px);
   background-color: #ff00001c;
+}
+
+///////////////////////////////////////////////////////////////////////
+// TREELINS
+////////////////
+
+.treeline {
 }
