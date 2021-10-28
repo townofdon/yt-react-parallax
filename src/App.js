@@ -1,7 +1,6 @@
 import './App.scss';
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink, useLocation, Link } from 'react-router-dom';
-import { ParallaxProvider } from 'react-scroll-parallax';
 
 import { GlobalScrollProvider } from './hooks/useGlobalScroll';
 import { GlobalMouseMoveProvider } from './hooks/useGlobalMouseMove';
@@ -32,11 +31,9 @@ function ScrollToTop() {
 
 function Wrapper({ children }) {
   return (
-    <ParallaxProvider>
-      <GlobalScrollProvider>
-        <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
-      </GlobalScrollProvider>
-    </ParallaxProvider>
+    <GlobalScrollProvider>
+      <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
+    </GlobalScrollProvider>
   );
 }
 

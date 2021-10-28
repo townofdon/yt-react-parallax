@@ -1,5 +1,4 @@
-import { useContext, useEffect } from 'react';
-import { Parallax } from 'react-scroll-parallax';
+import { useContext } from 'react';
 import { ControlTranslate } from '../components/interactive/ControlTranslate';
 
 import { ScrollableArea, ScrollableAreaContext } from '../components/interactive/ScrollableArea';
@@ -21,15 +20,9 @@ import imgBackpack3 from './sceneAssets/img-backpack-3.png';
 import imgCampfire from './sceneAssets/img-campfire.png';
 import { ControlSkew } from '../components/interactive/ControlSkew';
 
-const WIDTH = 1440;
-const HEIGHT = 800;
 const OFFSET = 0.37;
 
 export const AnimatedScene = () => {
-  useEffect(() => {
-    // snowfall();
-  });
-
   return (
     <div className="animated-scene animated-scene--container">
       <ScrollableArea id="sky-and-mountains">
@@ -46,12 +39,6 @@ export const AnimatedScene = () => {
           </div>
         </ControlTranslate>
       </ScrollableArea>
-      {/* <div
-        id="fireflies-canvas"
-        className="fireflies-canvas position-absolute fill-absolute z-index-20"
-        width={WIDTH}
-        height={HEIGHT}
-      /> */}
     </div>
   );
 };
