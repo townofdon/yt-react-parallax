@@ -25,7 +25,10 @@ export const ControlTranslate = ({
   const y = scrollFromY * inverse + scrollToY * easedProgress + mouseOffsetY * mouseY;
 
   return (
-    <div className={className} style={{ transform: `translate(${x}px, ${y}px)`, ...style }}>
+    <div
+      className={className}
+      style={{ transform: `translate#d(${x}px, ${y}px), 0px`, transformStyle: 'preserve-3d', ...style }}
+    >
       {children}
     </div>
   );

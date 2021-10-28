@@ -14,12 +14,15 @@ export const ScrollableArea = ({
   debugLabel = '',
   children,
   style = {},
+  startAtScreenTop = false,
 }) => {
   const ref = useRef(null);
   const [scrollY, winHeight] = useGlobalScroll();
   const [initialized, rect] = useRect(ref);
 
-  const scrollProgress = initialized ? getScrollProgress(scrollY, rect.top, rect.bottom, winHeight, clamp) : 0;
+  const scrollProgress = initialized
+    ? getScrollProgress(scrollY, rect.top, rect.bottom, winHeight, clamp, startAtScreenTop)
+    : 0;
 
   useEffect(() => {
     if (debug)
@@ -82,10 +85,17 @@ export const ScrollableArea = ({
  * - When an element is at the very top of the document, its scrollProgress starts at 0 with it already in view
  * - When an element is at the very bottom of the document, its scrollProgress ends at 1 with it still in view
  */
-function getScrollProgress(scrollY = 0, containerTopY = 0, containerBottomY = 0, winHeight = 0, clamp = false) {
+function getScrollProgress(
+  scrollY = 0,
+  containerTopY = 0,
+  containerBottomY = 0,
+  winHeight = 0,
+  clamp = false,
+  startAtScreenTop = false,
+) {
   if (!containerBottomY || containerBottomY - containerTopY <= 0) return -1;
 
-  const min = Math.max(containerTopY - winHeight, 0);
+  const min = startAtScreenTop ? containerTopY : Math.max(containerTopY - winHeight, 0);
   const max = Math.min(document.body.scrollHeight - winHeight, containerBottomY);
 
   const pctProgress = (scrollY - min) / (max - min);
