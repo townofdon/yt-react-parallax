@@ -2,6 +2,8 @@
 
 This is a collection of examples for the YouTube Parallax video.
 
+[Demo](https://townofdon.github.io/youtube-parallax/)
+
 ## Getting Started
 
 To run this on your local machine, do the following:
@@ -18,7 +20,7 @@ Your browser should automatically open up to `http://localhost:3000`.
 ## Deploying to Github Pages
 
 ```
-git subtree push --prefix build origin gh-pages
+./deploy-to-github-pages.sh
 ```
 
 ## Contributing
