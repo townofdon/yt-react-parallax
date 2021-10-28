@@ -2,7 +2,7 @@
 
 This is a collection of examples for the YouTube Parallax video.
 
-[Demo](https://townofdon.github.io/youtube-parallax/)
+[Demo](https://townofdon.github.io/yt-react-parallax/)
 
 ## Getting Started
 

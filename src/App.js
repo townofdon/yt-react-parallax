@@ -41,7 +41,7 @@ function App() {
   return (
     <Wrapper>
       <div className="App">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL || '/'}>
           <ScrollToTop />
           <nav className="navigation">
             <ul>
