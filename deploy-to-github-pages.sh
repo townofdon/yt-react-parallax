@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-echo "don't forget to run `yarn build`"
+echo "don't forget to run yarn build"
 echo
 
 git checkout main
