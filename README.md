@@ -15,6 +15,12 @@ yarn start
 
 Your browser should automatically open up to `http://localhost:3000`.
 
+## Deploying to Github Pages
+
+```
+git subtree push --prefix build origin gh-pages
+```
+
 ## Contributing
 
 As this is the repository for a YouTube video, I likely won't be making extensive changes. But if you do find any issues or have recommendations, open up a Pull Request!
